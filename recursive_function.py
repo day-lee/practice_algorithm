@@ -41,3 +41,36 @@ for i in range(1, 11):
 # 36
 # 45
 # 55
+
+#3 Sum of Digits
+
+def sum_digits(n):
+    if n < 10:
+        return n
+    string = str(n)
+    return int(string[0]) + sum_digits(int(string[1:]))
+
+# test
+print(sum_digits(22541))
+print(sum_digits(92130))
+print(sum_digits(12634))
+print(sum_digits(704))
+print(sum_digits(3755))
+
+# 14
+# 15
+# 16
+# 11
+# 20
+
+
+# suggested solution
+def sum_digits(n):
+    # base case
+    if n < 10:
+        return n
+
+    # recursive case
+    return n % 10 + sum_digits(n // 10)
+
+print(sum_digits(22541))
