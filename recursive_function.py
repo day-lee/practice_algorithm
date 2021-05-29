@@ -63,7 +63,6 @@ print(sum_digits(3755))
 # 11
 # 20
 
-
 # suggested solution
 def sum_digits(n):
     # base case
