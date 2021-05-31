@@ -1,3 +1,10 @@
+#Recursive function
+'''
+Approach
+Base case: problem is small enough to solve
+Recursive case: Sub-problem exists, can be divided into smaller, recursive case
+'''
+
 #1 Fibonacci Sequence
 # return Nth fibonacci number
 def fib(n):
