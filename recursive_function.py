@@ -87,3 +87,5 @@ def flip(some_list):
 some_list = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 some_list = flip(some_list)
 print(some_list)
+
+#[9, 8, 7, 6, 5, 4, 3, 2, 1]
