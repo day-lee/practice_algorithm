@@ -96,3 +96,62 @@ some_list = flip(some_list)
 print(some_list)
 
 #[9, 8, 7, 6, 5, 4, 3, 2, 1]
+
+#5 Binary search with recursive function
+def binary_search(element, some_list, start_index=0, end_index=None):
+    # when end_index is not allocated, use last index from the list
+    if end_index == None:
+        end_index = len(some_list) - 1
+
+    mid_index = (start_index + end_index) // 2
+
+    #Base case
+    if some_list[mid_index] == element:
+        return mid_index
+    elif end_index - start_index == 0 and some_list[mid_index] != element:
+        return None
+
+    #Recursive case
+    if some_list[mid_index] > element:
+        return binary_search(element, some_list, end_index=mid_index)
+    elif some_list[mid_index] < element:
+        return binary_search(element, some_list, start_index=mid_index + 1)
+
+
+print(binary_search(2, [2, 3, 5, 7, 11]))
+print(binary_search(0, [2, 3, 5, 7, 11]))
+print(binary_search(5, [2, 3, 5, 7, 11]))
+print(binary_search(3, [2, 3, 5, 7, 11]))
+print(binary_search(11, [2, 3, 5, 7, 11]))
+
+# 0
+# None
+# 2
+# 1
+# 4
+
+#suggested solution
+def binary_search(element, some_list, start_index=0, end_index=None):
+    # when end_index is not allocated, use last index from the list
+    if end_index == None:
+        end_index = len(some_list) - 1
+
+    # if start_index is bigger than end_index, there is no element in some_list
+    if start_index > end_index:
+        return None
+
+    # find mid_index from the range
+    mid = (start_index + end_index) // 2
+
+    # check if mid index matches with element
+    if some_list[mid] == element:
+        return mid
+
+    # if element is smaller than mid_index value, search the left side of the list
+    if element < some_list[mid]:
+        return binary_search(element, some_list, start_index, mid - 1)
+
+    # if bigger, search right side
+    else:
+        return binary_search(element, some_list, mid + 1, end_index)
+
